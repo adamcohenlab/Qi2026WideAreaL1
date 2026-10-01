@@ -34,8 +34,7 @@ be added here when it is.
 
 ## Data
 
-[*Under construction.* All the data will be released as NWB files through the
-DANDI Archive. The link and the Dandiset number will be added here.](https://dandiarchive.org/dandiset/001960)
+https://dandiarchive.org/dandiset/001960
 
 Every script reads the NWB files directly. Nothing else needs to be
 downloaded. The files are large (about 20 to 30 GB per session, and about 360 GB
