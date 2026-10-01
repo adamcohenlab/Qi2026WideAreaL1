@@ -1,0 +1,9 @@
+# Figure outputs written next to the scripts by default
+figure_reproduction/figure*_nwb_reproduction/
+
+# MATLAB autosave and editor backups
+*.asv
+*.m~
+
+# Local data should never be committed
+*.nwb
