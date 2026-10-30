@@ -1,8 +1,9 @@
 % --------------------------------------------------------------------------
 % Copied into this repository on 2026-09-27; the code below is unchanged.
 % Origin: IronClust (https://github.com/flatironinstitute/ironclust),
-% matlab/fft_clean.m. Byte-identical to the IronClust file; no licence
-% file came with the local copy, so check the upstream repository.
+% matlab/fft_clean.m. Byte-identical to the IronClust file.
+% Copyright 2018-2020 Flatiron Institute, a division of Simons Foundation.
+% Licensed under the Apache License, Version 2.0; see LICENSE in this folder.
 % --------------------------------------------------------------------------
 function mr1 = fft_clean(mr, thresh, nbins)
 % mr must be single

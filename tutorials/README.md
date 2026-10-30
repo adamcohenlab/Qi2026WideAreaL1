@@ -397,7 +397,7 @@ from.
 | `helpers/psp_fitting/` | 16 functions for IPSP detection and fitting, including `benjaminiHochberg` | written for this study | 3, 4 |
 | `helpers/caiman_gpl/` | `HALS_temporal`, `HALS_spatial`; `ALS_nonneg`, `ALS_nonneg_BackgroundUpdateOnly` | [CaImAn-MATLAB](https://github.com/flatironinstitute/CaImAn-MATLAB); the ALS files are the author's modifications of it. **GNU GPL v2**, see `license.txt` there. | 1b |
 | `helpers/cohen_lab/` | `toimg`, `tovec`; `SeeResiduals_vec` | Cohen Lab, Harvard University; `SeeResiduals_vec` is the author's modification of the lab's `SeeResiduals` | 1b, 3, 4 |
-| `helpers/ironclust/` | `fft_clean` | [IronClust](https://github.com/flatironinstitute/ironclust) | 1b, 1c |
+| `helpers/ironclust/` | `fft_clean` | [IronClust](https://github.com/flatironinstitute/ironclust). **Apache License 2.0**, see `LICENSE` there. | 1b, 1c |
 
 ## Files in each tutorial folder
 

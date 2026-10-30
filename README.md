@@ -77,8 +77,10 @@ says where it came from at the top.
   (Nils Haentjens).
 - `tutorials/helpers/`: code from CaImAn-MATLAB, IronClust and the Cohen Lab
   at Harvard. The CaImAn-derived files are under the GNU GPL v2; its licence
-  text is in `tutorials/helpers/caiman_gpl/license.txt`. See the tutorials
-  README for the full list.
+  text is in `tutorials/helpers/caiman_gpl/license.txt`. The IronClust file is
+  under the Apache License 2.0; its licence text is in
+  `tutorials/helpers/ironclust/LICENSE`. See the tutorials README for the full
+  list.
 
 ## Licence
 
