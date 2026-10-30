@@ -29,8 +29,23 @@ Each folder has its own README with instructions.
 
 ## Citation
 
-*Under construction.* The manuscript is not yet public. Citation details will
-be added here when it is.
+If you use this code or the data, please cite the preprint:
+
+Qi Y, Parot VJ, Wu X, Plutkis SE, Lavis LD, Cohen AE. Large-scale all-optical
+electrophysiology links excitability and connectivity to circuit dynamics in
+vivo. *bioRxiv* (2026).
+[doi:10.64898/2026.10.05.756595](https://doi.org/10.64898/2026.10.05.756595)
+
+```bibtex
+@article{Qi2026,
+  title     = {Large-scale all-optical electrophysiology links excitability and connectivity to circuit dynamics in vivo},
+  author    = {Qi, Yitong and Parot, Vicente J. and Wu, Xiang and Plutkis, Sarah E. and Lavis, Luke D. and Cohen, Adam E.},
+  journal   = {bioRxiv},
+  year      = {2026},
+  doi       = {10.64898/2026.10.05.756595},
+  url       = {https://www.biorxiv.org/content/10.64898/2026.10.05.756595v1}
+}
+```
 
 ## Data
 
