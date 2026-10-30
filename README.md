@@ -82,4 +82,11 @@ says where it came from at the top.
 
 ## Licence
 
-*Under construction.*
+The code written for this repository is released under the
+[MIT License](LICENSE). You may use, copy, change and share it, including
+for commercial use, as long as you keep the copyright notice and licence text.
+
+The third-party files listed above keep their own licences. The
+CaImAn-derived files in `tutorials/helpers/caiman_gpl/` are under the GNU GPL
+v2, so if you redistribute those files, or code built on them, the GPL terms
+apply to that part.
