@@ -31,8 +31,9 @@ same content as the published panels.
 | 5 | `reproduce_figure5_from_nwb` | `M_YQ0201_27_sparseOpto.nwb`, `M_YQ0201_27_sparsePulseHad.nwb` | Statistics and Machine Learning | 1 to 2 min |
 | 6 | `reproduce_figure6_from_nwb` | `M_YQ0201_29_behavior.nwb`, `M_YQ0201_27_behavior.nwb`, `M_YQ0201_29_sparseOpto.nwb`, `M_YQ0201_27_sparsePulseHad.nwb` | Signal Processing; Statistics and Machine Learning; Curve Fitting; UMAP | 3 to 4 min |
 
-The file names are those used during analysis. The names on DANDI may
-differ. `M_YQ0201_27` and `M_YQ0201_29` are the two mice. The three session
+The file names are those used during analysis. The Data section of the
+[main README](../README.md#data) gives the matching name of each file on
+DANDI. `M_YQ0201_27` and `M_YQ0201_29` are the two mice. The three session
 types are:
 
 - **sparseOpto**: intrinsic-excitability mapping. A few cells at a time get
@@ -48,8 +49,9 @@ from File Exchange. Install it and put it on the path. Figure 2 still runs
 without it; it only leaves out the UMAP scatter. Figure 6 needs it for panels
 E, F and G.
 
-Times were measured on a workstation with the files on a local drive. Reading
-from a network drive is much slower.
+Times were measured on a desktop PC (Intel Core i9-10850K, 10 cores, 128 GB
+of RAM, Windows 11) with the files on a local drive. Reading from a network
+drive is much slower.
 
 ## Running a script
 

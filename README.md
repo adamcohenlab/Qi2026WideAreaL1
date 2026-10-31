@@ -52,9 +52,22 @@ vivo. *bioRxiv* (2026).
 https://dandiarchive.org/dandiset/001960
 
 Every script reads the NWB files directly. Nothing else needs to be
-downloaded. The files are large (about 20 to 30 GB per session, and about 360 GB
-for the raw-movie excerpt used in tutorial 1), so keep them on a fast local
-drive.
+downloaded. The files are large, so keep them on a fast local drive.
+
+The READMEs and scripts call the files by the names used during analysis.
+On DANDI the same files have the standard DANDI names:
+
+| Name in this repository | Name on DANDI | Size |
+|---|---|---|
+| `M_YQ0201_27_sparseOpto.nwb` | `sub-M-YQ0201-27/sub-M-YQ0201-27_ses-sparseOpto_behavior+ophys.nwb` | 24.5 GB |
+| `M_YQ0201_29_sparseOpto.nwb` | `sub-M-YQ0201-29/sub-M-YQ0201-29_ses-sparseOpto_behavior+ophys.nwb` | 19.9 GB |
+| `M_YQ0201_27_sparsePulseHad.nwb` | `sub-M-YQ0201-27/sub-M-YQ0201-27_ses-sparsePulseHad_behavior+ophys.nwb` | 29.7 GB |
+| `M_YQ0201_29_sparsePulseHad.nwb` | `sub-M-YQ0201-29/sub-M-YQ0201-29_ses-sparsePulseHad_behavior+ophys.nwb` | 25.5 GB |
+| `M_YQ0201_27_behavior.nwb` | `sub-M-YQ0201-27/sub-M-YQ0201-27_ses-behavior_behavior+ophys.nwb` | 26.4 GB |
+| `M_YQ0201_29_behavior.nwb` | `sub-M-YQ0201-29/sub-M-YQ0201-29_ses-behavior_behavior+ophys.nwb` | 22.7 GB |
+| `M_YQ0201_29_behavior_rawexcerpt.nwb` | `sub-M-YQ0201-29/sub-M-YQ0201-29_ses-behavior-rawexcerpt_behavior+ophys.nwb` | 356.8 GB |
+
+You can keep the DANDI names. Just pass the path to the file you downloaded.
 
 ## Getting started
 
@@ -73,15 +86,69 @@ drive.
 The NWB files are read with MATLAB's built-in HDF5 functions, so you do not
 need MatNWB or any other NWB package.
 
+**Install time.** Installing the code takes a few minutes. There is nothing
+to compile: you download it and add it to the MATLAB path. Installing MATLAB
+and its toolboxes, if you do not already have them, is separate. Downloading
+the data takes longer: one 25 GB session takes about 35 minutes at
+100 Mbit/s.
+
 ## Requirements
 
-- MATLAB R2019b or later.
+**Software**
+
+- Tested on Windows 11. The code is plain MATLAB with no compiled files, so
+  it should also run on macOS and Linux, but this has not been tested.
+- MATLAB R2019b or later. All code was tested on R2019b (9.7).
 - MathWorks toolboxes. Which ones you need depends on the script; each
-  README has a table. The full set is: Statistics and Machine Learning,
-  Signal Processing, Image Processing, Curve Fitting, Optimization, and
-  Computer Vision. Parallel Computing is optional.
+  README has a table. Tested with the versions that ship with R2019b:
+
+  | Toolbox | Version tested |
+  |---|---|
+  | Statistics and Machine Learning | 11.6 |
+  | Signal Processing | 8.3 |
+  | Image Processing | 11.0 |
+  | Curve Fitting | 3.5.10 |
+  | Optimization | 8.4 |
+  | Computer Vision | 9.1 |
+  | Parallel Computing (optional) | 7.1 |
+
 - The [UMAP package for MATLAB](https://www.mathworks.com/matlabcentral/fileexchange/71902-uniform-manifold-approximation-and-projection-umap)
-  from File Exchange, for the Figure 2 and Figure 6 embeddings only.
+  from File Exchange, for the Figure 2 and Figure 6 embeddings only. Tested
+  with the January 2020 release.
+
+**Hardware**
+
+No special hardware is needed. The code does not use a GPU.
+
+- **Memory:** 16 GB of RAM is enough for most scripts. Tutorials 3 and 4
+  hold 8 to 10 GB of data at once, so 32 GB is safer for them.
+- **Disk:** 20 to 30 GB for each session file you download, and about 360 GB
+  for the raw-movie excerpt used in tutorial 1.
+- **Tested on:** a desktop PC with an Intel Core i9-10850K (10 cores),
+  128 GB of RAM and Windows 11. The run times in the other READMEs were
+  measured on this machine, with the NWB files on a local drive.
+
+## Using the code on your own data
+
+The figure scripts and the tutorial scripts read these NWB files at fixed
+internal paths, so as written they run only on this dataset. The method
+functions they call take plain MATLAB arrays, so you can use them on other
+voltage-imaging data:
+
+| Step | Function | Main input |
+|---|---|---|
+| Motion correction | `opticalFlowMotionCorrection` (tutorial 1) | a movie (rows × columns × frames) and a reference image |
+| Demixing overlapping cells | `demixCellNMF` (tutorial 1) | the motion-corrected pixels around one cell, and starting footprints for it and its neighbours |
+| Spike detection | `detectSpikesMatchedFilter` (tutorial 1) | one cell's voltage trace |
+| Spike-detection error rates | `fitSpikeHeightMixture` (tutorial 1) | the output of `detectSpikesMatchedFilter` |
+| Spike-triggered averages | `get_sta_mat_2`, `get_sta_mat_single` (`tutorials/helpers/voltage_imaging/`) | spike times and voltage traces |
+| IPSP detection and fitting | functions in `tutorials/helpers/psp_fitting/` | averaged pair waveforms, stimulus times and cell positions |
+| Correcting for many tests | `benjaminiHochberg` (`tutorials/helpers/psp_fitting/`) | a list of p-values |
+
+Type `help` followed by the function name in MATLAB to see its inputs and
+options. The easiest way to start is to run the matching tutorial on the
+public data first. Then replace the lines where the tutorial loads arrays
+from the NWB file with your own arrays.
 
 ## Third-party code
 

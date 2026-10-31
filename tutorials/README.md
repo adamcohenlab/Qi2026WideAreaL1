@@ -30,8 +30,9 @@ minutes. Stage 1c is the quickest part of tutorial 1.
 
    Each tutorial script also adds its own folder and `helpers/` when it runs.
 
-2. Download the NWB file the tutorial needs. The file names are those used
-   during analysis; the names on DANDI may differ.
+2. Download the NWB file the tutorial needs. The file names here are those
+   used during analysis. The Data section of the [main README](../README.md#data)
+   gives the matching name of each file on DANDI.
 
 3. Tell the tutorial where the file is. How depends on the tutorial:
 
